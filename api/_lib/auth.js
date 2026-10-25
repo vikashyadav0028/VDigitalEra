@@ -5,11 +5,11 @@ const sessionLifetime = 3 * 24 * 60 * 60;
 
 function expectedPassword() {
   const password = process.env.DASHBOARD_PASSWORD;
-  return typeof password === 'string' && password.length >= 20 ? password : null;
+  return typeof password === 'string' && /^[A-Za-z0-9]{6}$/.test(password) ? password : null;
 }
 
 export function passwordIsConfigured() {
-  return Boolean(expectedPassword());
+  return Boolean(expectedPassword() && (process.env.DASHBOARD_SESSION_SECRET || process.env.DATABASE_URL));
 }
 
 export function matchesDashboardPassword(candidate) {
@@ -21,7 +21,9 @@ export function matchesDashboardPassword(candidate) {
 }
 
 function sign(timestamp) {
-  return createHmac('sha256', expectedPassword()).update(`vd-owner:${timestamp}`).digest('hex');
+  const sessionSecret = process.env.DASHBOARD_SESSION_SECRET || process.env.DATABASE_URL;
+  const key = createHash('sha256').update(`vd-owner-session:${sessionSecret}`).digest();
+  return createHmac('sha256', key).update(`vd-owner:${timestamp}`).digest('hex');
 }
 
 export function issueSessionCookie(req) {

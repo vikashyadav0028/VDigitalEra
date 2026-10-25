@@ -25,10 +25,10 @@
       <p class="muted">Sign in to view site activity and project enquiries.</p>
       <form id="loginForm">
         <label for="dashboardPassword">Dashboard password</label>
-        <input id="dashboardPassword" name="password" type="password" autocomplete="current-password" minlength="20" required placeholder="Enter your private password">
+        <input id="dashboardPassword" name="password" type="password" autocomplete="current-password" minlength="6" maxlength="6" pattern="[A-Za-z0-9]{6}" required placeholder="Enter your 6-character passcode">
         <button class="button primary" type="submit">Unlock dashboard <span>↗</span></button>
       </form>
-      <p class="notice" id="loginStatus" role="status" aria-live="polite">Set a unique password with at least 20 characters in Vercel Environment Variables first.</p>
+      <p class="notice" id="loginStatus" role="status" aria-live="polite">Set your six-character passcode in Vercel Environment Variables first. For protection, only 3 incorrect attempts are allowed every 15 minutes.</p>
       <a class="back-link" href="index.html">← Back to VdigitalEra</a>
     </section>
 

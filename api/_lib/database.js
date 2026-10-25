@@ -38,6 +38,12 @@ export async function ensureDashboardSchema(db = database()) {
       consent BOOLEAN NOT NULL CHECK (consent = TRUE)
     );
     CREATE INDEX IF NOT EXISTS enquiries_created_at_idx ON enquiries (created_at DESC);
+    CREATE TABLE IF NOT EXISTS admin_login_guard (
+      id SMALLINT PRIMARY KEY CHECK (id = 1),
+      window_started TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+      failures INTEGER NOT NULL DEFAULT 0
+    );
+    INSERT INTO admin_login_guard (id) VALUES (1) ON CONFLICT (id) DO NOTHING;
   `).catch(error => {
     schemaPromise = undefined;
     throw error;
