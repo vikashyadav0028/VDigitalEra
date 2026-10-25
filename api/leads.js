@@ -53,8 +53,12 @@ export default async function handler(req, res) {
 
   const origin = req.headers.origin;
   const host = req.headers.host;
-  if (origin && host && new URL(origin).host !== host) {
-    return res.status(403).json({ error: 'Request origin is not allowed.' });
+  if (origin && host) {
+    try {
+      if (new URL(origin).host !== host) return res.status(403).json({ error: 'Request origin is not allowed.' });
+    } catch {
+      return res.status(403).json({ error: 'Request origin is not allowed.' });
+    }
   }
 
   const data = req.body && typeof req.body === 'object' ? req.body : {};
