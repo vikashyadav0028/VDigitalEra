@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="referrer" content="no-referrer">
+  <title>Owner Dashboard — VdigitalEra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dashboard.css">
+  <script src="dashboard.js" defer></script>
+</head>
+<body>
+  <header class="dash-topbar">
+    <a class="brand" href="index.html" aria-label="VdigitalEra home"><span class="brand-mark">V<span>.</span></span><span>Vdigital<span class="brand-light">Era</span></span></a>
+    <span class="owner-pill"><i></i> OWNER SPACE</span>
+  </header>
+  <main class="dash-main">
+    <section class="login-card" id="loginCard" aria-labelledby="loginTitle">
+      <div class="login-icon" aria-hidden="true">V<span>.</span></div>
+      <p class="eyebrow">PRIVATE OWNER DASHBOARD</p>
+      <h1 id="loginTitle">Your business, at a glance.</h1>
+      <p class="muted">Sign in to view site activity and project enquiries.</p>
+      <form id="loginForm">
+        <label for="dashboardPassword">Dashboard password</label>
+        <input id="dashboardPassword" name="password" type="password" autocomplete="current-password" minlength="20" required placeholder="Enter your private password">
+        <button class="button primary" type="submit">Unlock dashboard <span>↗</span></button>
+      </form>
+      <p class="notice" id="loginStatus" role="status" aria-live="polite">Set a unique password with at least 20 characters in Vercel Environment Variables first.</p>
+      <a class="back-link" href="index.html">← Back to VdigitalEra</a>
+    </section>
+
+    <section class="dashboard-view hidden" id="dashboardView" aria-labelledby="dashboardTitle">
+      <div class="dash-heading">
+        <div><p class="eyebrow">PRIVATE OWNER DASHBOARD</p><h1 id="dashboardTitle">Good to see you.</h1><p class="muted">A simple view of how people find and contact VdigitalEra.</p></div>
+        <button class="button quiet" id="logoutButton" type="button">Sign out</button>
+      </div>
+      <p id="dashboardStatus" class="notice hidden" role="status" aria-live="polite"></p>
+      <div class="metric-grid" id="metrics" aria-live="polite">
+        <article class="metric-card"><span>Website visits · 30 days</span><strong id="visitMetric">—</strong><small>Page views, not unique people</small></article>
+        <article class="metric-card"><span>CTA clicks · 30 days</span><strong id="clickMetric">—</strong><small>WhatsApp, contact, services & demos</small></article>
+        <article class="metric-card"><span>Enquiries · 30 days</span><strong id="enquiryMetric">—</strong><small id="allEnquiries">— all time</small></article>
+      </div>
+
+      <div class="insight-grid">
+        <section class="panel activity-panel"><div class="panel-heading"><div><p class="eyebrow">LAST 14 DAYS</p><h2>Visits & clicks</h2></div><span class="legend"><i></i> Visits <b></b> Clicks</span></div><div id="activityChart" class="activity-chart" aria-label="Daily visits and clicks for the last 14 days"></div></section>
+        <section class="panel click-panel"><div class="panel-heading"><div><p class="eyebrow">LAST 30 DAYS</p><h2>What visitors tap</h2></div></div><div id="clickBreakdown" class="click-breakdown"></div></section>
+      </div>
+
+      <section class="panel leads-panel"><div class="panel-heading"><div><p class="eyebrow">INBOX</p><h2>Recent enquiries</h2><p class="muted">Private contact details are visible only after owner sign-in.</p></div><span class="inbox-count" id="inboxCount">0 enquiries</span></div><div id="enquiryList" class="enquiry-list"></div></section>
+      <p class="privacy-note">Visits and CTA counts are anonymous page totals. The site does not store visitor IP addresses or form input as analytics.</p>
+    </section>
+  </main>
+  <footer class="dash-footer"><span>VdigitalEra · Owner dashboard</span><a href="index.html">Public website ↗</a></footer>
+</body>
+</html>

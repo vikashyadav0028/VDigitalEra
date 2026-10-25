@@ -3,3 +3,4 @@
 .demo-whatsapp{position:fixed;right:20px;bottom:19px;z-index:30;background:#20b45a;color:white;padding:11px 15px;border-radius:30px;box-shadow:0 8px 25px #14321d40;font-size:9px;font-weight:700;transition:.2s transform}.demo-whatsapp:hover{transform:translateY(-3px)}
 @media(max-width:720px){.demo-whatsapp{right:12px;bottom:12px;font-size:8px;padding:10px 12px}}
 
+.demo-analytics-note{margin:12px auto 20px;text-align:center;color:#81867e;font-size:9px;padding:0 16px}
