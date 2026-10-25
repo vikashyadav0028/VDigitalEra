@@ -18,3 +18,4 @@
 .campaign-top .brand-tagline{font:800 7px/1.3 var(--body);letter-spacing:.16em;color:#829087}
 @media(max-width:640px){.campaign-top .brand{gap:8px}.campaign-top .brand-mark{width:39px;height:39px;min-width:39px;border-radius:13px}.campaign-top .brand-name{font-size:17px}.campaign-top .brand-tagline{font-size:6px;letter-spacing:.13em}}
 @media(prefers-reduced-motion:reduce){.campaign-top .brand-mark{transition:none!important}}
+@media(max-width:760px){.campaign-top{height:66px;padding:0 16px}.campaign-top nav{display:none}.campaign-top .campaign-contact{font-size:8px;padding:10px 12px}}
