@@ -37,7 +37,9 @@ The floating WhatsApp buttons open a chat with `+91 94578 86467` and include a s
 
 ## Enquiry data and going live
 
-Submitted records are saved locally in SQLite at `data/leads.sqlite`. Back up and restrict access to this file. The included server is for local preview and does not include an online admin dashboard or email notifications. For public use, deploy behind a production web server with HTTPS, backups, access controls, email notifications, and a published privacy notice. Configure the server/API so submissions reach the database on your host.
+Local preview submissions are saved in SQLite at `data/leads.sqlite`. On Vercel, `api/leads.js` stores submissions in Postgres using the `DATABASE_URL` environment variable. Connect a Postgres Marketplace database to the Vercel project before accepting public enquiries; without it, the API returns a clear temporary-unavailable response. The function creates the `enquiries` table on its first valid submission. The Vercel deployment does not use SQLite.
+
+The site has no online admin dashboard or email notifications. Restrict database access, keep credentials only in Vercel environment variables, configure backups/retention with the database provider, and publish a privacy notice before collecting real enquiries.
 
 Before launch, replace the sample email, confirm all prices and deliverables against your capacity and local taxes, provide real contact/business details and a privacy notice, and confirm usage rights for the external demo images. Ad spend, applicable taxes, domain/hosting, production filming, and paid tools are additional unless a written quote says otherwise. Prices are introductory starting fees, not outcome guarantees.
 
